@@ -1,0 +1,9 @@
+# Builds
+**/target
+
+# macOS
+**/.DS_Store
+
+# Artifacts
+*.alfredworkflow
+/workflow/numfmt

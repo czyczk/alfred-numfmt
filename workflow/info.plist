@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.zenas.numfmt</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>9F3A1C2E-0001-4000-8000-000000000001</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9F3A1C2E-0001-4000-8000-000000000002</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>zenas</string>
+	<key>description</key>
+	<string>Convert numbers between hexadecimal, decimal, octal and binary</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Number Format Converter</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>x</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Converting…</string>
+				<key>script</key>
+				<string>./numfmt "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>subtext</key>
+				<string>e.g. 100 | 0x64 | 0144 | 0b1100100</string>
+				<key>title</key>
+				<string>Convert Number</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>9F3A1C2E-0001-4000-8000-000000000001</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>9F3A1C2E-0001-4000-8000-000000000002</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+			</dict>
+			<key>description</key>
+			<string>Show base prefixes in results (0x hex, 0 octal, 0b binary)</string>
+			<key>label</key>
+			<string>Show base prefix</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>show_prefix</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<false/>
+				<key>required</key>
+				<false/>
+			</dict>
+			<key>description</key>
+			<string>Pad hex digits: 0x4 → 0x04 (pads to pairs, or to quads when quad splitting is on)</string>
+			<key>label</key>
+			<string>Pad hex digits</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>hex_padding</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>none</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>None (0x12345)</string>
+						<string>none</string>
+					</array>
+					<array>
+						<string>Pairs (0x1 23 45)</string>
+						<string>pairs</string>
+					</array>
+					<array>
+						<string>Quads (0x1 2345)</string>
+						<string>quads</string>
+					</array>
+				</array>
+				<key>required</key>
+				<false/>
+			</dict>
+			<key>description</key>
+			<string>Group hex digits with spaces. With "Pad hex digits" on, groups are zero-padded: pairs → 0x01 23 45, quads → 0x0001 2345</string>
+			<key>label</key>
+			<string>Hex splitting</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>hex_splitting</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>none</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>None (1234567)</string>
+						<string>none</string>
+					</array>
+					<array>
+						<string>Comma (1,234,567)</string>
+						<string>comma</string>
+					</array>
+					<array>
+						<string>Period (1.234.567)</string>
+						<string>period</string>
+					</array>
+					<array>
+						<string>Underscore (1_234_567)</string>
+						<string>underscore</string>
+					</array>
+				</array>
+				<key>required</key>
+				<false/>
+			</dict>
+			<key>description</key>
+			<string>Group decimal digits in threes</string>
+			<key>label</key>
+			<string>Decimal splitting</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>dec_splitting</string>
+		</dict>
+	</array>
+	<key>version</key>
+	<string>1.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
